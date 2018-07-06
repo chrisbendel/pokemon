@@ -6,7 +6,8 @@ export default class Pokelist extends Component {
     super(props);
 
     this.state = {
-      pokemon: null
+      pokemon: null,
+      loading: true
     }
   }
   
@@ -15,15 +16,22 @@ export default class Pokelist extends Component {
 
     getPokemonDetail(id).then(pokemon => {
       this.setState({
-        pokemon: pokemon
+        pokemon: pokemon,
+        loading: false
       })
     });
   }
 
   render() {
-    console.log(this.state.pokemon);
+    const pokemon = this.state.pokemon;
+    if (this.state.loading) {
+      return <p>loading ...</p> 
+    }
+
     return (
-      <div>hello</div>
+      <div>
+        <p>{pokemon.name}</p>
+      </div>
     );
   }
 }
