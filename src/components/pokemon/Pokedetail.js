@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {getPokemonDetail} from './../../api/pokemon';
 import {NavLink} from 'react-router-dom';
+import './Pokedetails.css';
 
 export default class Pokelist extends Component {
   constructor(props) {
@@ -41,9 +42,9 @@ export default class Pokelist extends Component {
     }
     
     return (
-      <div>
-        <p>{pokemon.name}</p>
-        <p>{pokemon.id}</p>    
+      <div class="container">
+        <h1>{pokemon.name}</h1>
+        <p>Poke#: {pokemon.id}</p>    
         <img src={pokemon.sprites.front_default}/>
         {this.renderTypes()}
       </div>
