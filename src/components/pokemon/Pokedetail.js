@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {getPokemonDetail} from './../../api/pokemon';
 import {NavLink} from 'react-router-dom';
-import './Pokedetails.css';
+import './Pokedetail.css';
 
 export default class Pokelist extends Component {
   constructor(props) {
@@ -34,6 +34,19 @@ export default class Pokelist extends Component {
     })
   }
 
+  // renderSprite = (_key) => {
+  //   return(
+  //     <img src={this.state.pokemon.sprites.front_default}/>     
+  //   );
+  // }
+
+  renderAllSprites = () => {
+    for(var p in this.state.pokemon.sprites){
+      //console.log(this.state.pokemon.sprites[p])
+      //this.renderSprite(p);
+    }
+  }
+
   render() {
     const pokemon = this.state.pokemon;
     console.log(pokemon);
@@ -42,11 +55,16 @@ export default class Pokelist extends Component {
     }
     
     return (
-      <div class="container">
-        <h1>{pokemon.name}</h1>
-        <p>Poke#: {pokemon.id}</p>    
-        <img src={pokemon.sprites.front_default}/>
-        {this.renderTypes()}
+      <div className="container">
+      <h1 className="main-title">{pokemon.name}</h1>
+        <span className="left-column">
+          <p>Poke#: {pokemon.id}</p>    
+          <img className="main-image" src={pokemon.sprites.front_default}/>
+          {this.renderTypes()}
+        </span>
+        <span className="right-column">
+          <p>Darth Plagueis was a Dark Lord of the Sith so powerful and so wise, he could use the Force to influence the midi-chlorians to create life. He had such a knowledge of the dark side, he could even keep the ones he cared about from dying.</p>          
+        </span>
       </div>
     );
   }
