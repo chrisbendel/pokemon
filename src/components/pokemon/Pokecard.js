@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import {getPokemonDetail} from './../../api/pokemon';
 import { Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Button } from 'reactstrap';
+import P from './../../Pokemon';
 import PokecardShell from './PokecardShell';
 
 export default class Pokecard extends Component {
@@ -14,15 +14,15 @@ export default class Pokecard extends Component {
   }
   
   componentDidMount() {
-    getPokemonDetail(this.props.name).then(pokemon => {
+    P.getPokemonByName(this.props.name).then(pokemon => {
+      console.log(pokemon);
       this.setState({
         pokemon: pokemon
-      })
+      });
     });
   }
 
   render() {
-    console.log(this.state.pokemon);
     return (
       <Card>
         <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />

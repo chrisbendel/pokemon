@@ -15,7 +15,7 @@ export default class App extends Component {
           <div className="main">
             <Route exact path='/' component={Pokelist}/>
             <Route exact path='/pokemon' component={Pokelist}/>
-            <Route exact path='/pokemon/:id' component={Pokedetail}/>
+            <Route exact path='/pokemon/:name' component={Pokedetail}/>
           </div>
         </div>
       </Router>
