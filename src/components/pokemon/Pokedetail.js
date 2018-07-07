@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {NavLink} from 'react-router-dom';
 import P from './../../Pokemon';
 import './Pokedetail.css';
+import Skeleton from 'react-loading-skeleton';
+import {get} from 'lodash';
 
 export default class Pokelist extends Component {
   constructor(props) {
@@ -47,20 +49,20 @@ export default class Pokelist extends Component {
   render() {
     const pokemon = this.state.pokemon;
 
-    if (!this.state.pokemon) {
-      return <p>loading ...</p> 
-    }
+    // if (!this.state.pokemon) {
+    //   return <p>loading ...</p> 
+    // }
     
     return (
       <div className="container">
-      <h1 className="main-title">{pokemon.name}</h1>
+      <h1 className="main-title">{get(pokemon, 'name', <Skeleton/>)}</h1>
         <span className="left-column">
-          <p>Poke#: {pokemon.id}</p>    
-          <img className="main-image" src={pokemon.sprites.front_default}/>
-          {this.renderTypes()}
+          <p>Poke#: {get(pokemon, 'id', <Skeleton/>)}</p>    
+          <img className="main-image" src={get(pokemon, 'sprites.default_front', <Skeleton/>)}/>
+          {pokemon && this.renderTypes()}
         </span>
         <span className="right-column">
-          <p>Weight: {pokemon.weight}</p>
+          <p>Weight: {get(pokemon, 'weight', <Skeleton/>)}</p>
         </span>
       </div>
     );
