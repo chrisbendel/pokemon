@@ -6,7 +6,7 @@ const items = [
 
 ]
 
-export default class Pokelist extends Component { 
+export default class Header extends Component { 
   renderItems = () => {
     return items.map(item => {
       return (

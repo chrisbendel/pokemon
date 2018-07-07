@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {getAllPokemon} from './../../api/pokemon';
+import Pokecard from './Pokecard';
 
 export default class Pokelist extends Component {
   constructor(props) {
@@ -18,9 +19,17 @@ export default class Pokelist extends Component {
     });
   }
 
+  renderPokecards = pokemonList => {
+    return pokemonList.map(pokemon => {
+      return <Pokecard key={pokemon.name} name={pokemon.name}/>
+    });
+  }
+
   render() {
     return (
-      <div>hello</div>
+      <div>
+        {this.renderPokecards(this.state.pokemon)}
+      </div>
     );
   }
 }
