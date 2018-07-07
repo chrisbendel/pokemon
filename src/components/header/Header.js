@@ -1,25 +1,28 @@
 import React, { Component } from 'react';
 import {NavLink} from 'react-router-dom';
+import { Nav, NavItem } from 'reactstrap';
 
 const items = [
   {path: '/pokemon', title: 'Pokemon'},
-
+  {path: '/tms', title: 'tms'}
 ]
 
 export default class Header extends Component { 
   renderNavItems = () => {
     return items.map(item => {
       return (
-        <NavLink key={item.title} to={item.path}>{item.title}</NavLink>
+        <NavItem>
+          <NavLink key={item.title} to={item.path}>{item.title}</NavLink>
+        </NavItem>
       );
     });
   }
 
   render() {
     return (
-      <div className="sidenav">
+      <Nav vertical className="navbar-fixed-left">
         {this.renderNavItems()}
-      </div>
+      </Nav>
     );
   }
 }

@@ -10,15 +10,15 @@ Feel free to grab more if we need additional colors
 */
 
 .sidenav {
-  height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 140px;
-  position: fixed;
+  height: 100%;
+  /* width: 140px; */
+  /* position: fixed;
   z-index: 1;
   top: 0;
   left: 0;
   background-color: #ffeed5;
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 20px;
+  overflow-x: hidden;
+  padding-top: 20px; */
 }
 
 /* The navigation menu links */
@@ -38,15 +38,11 @@ Feel free to grab more if we need additional colors
   text-decoration: none;
 }
 
-.active {
-
-}
-
-/* Style page content */
-.main {
-  margin-left: 140px; /* Same as the width of the sidebar */
-  padding: 0px 10px;
-}
+/* .main {
+  margin-left: 140px !important;
+  margin-right: 0px !important;
+  width: calc(100% - 140px);
+} */
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {

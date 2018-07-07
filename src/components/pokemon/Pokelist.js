@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import P from './../../Pokemon';
 import Pokecard from './Pokecard';
+import './Pokemon.css';
 
 export default class Pokelist extends Component {
   constructor(props) {
@@ -32,10 +33,6 @@ export default class Pokelist extends Component {
   }
 
   render() {
-    // if (!this.state.pokemon.length) {
-    //   return <div>loading ...</div>
-    // }
-
     return (
       <div>
         {this.renderPokecards(this.state.pokemon)}
