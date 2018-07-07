@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import {getPokemonDetail} from './../../api/pokemon';
 import {NavLink} from 'react-router-dom';
+import P from './../../Pokemon';
 import './Pokedetail.css';
 
 export default class Pokelist extends Component {
@@ -8,19 +8,16 @@ export default class Pokelist extends Component {
     super(props);
 
     this.state = {
-      pokemon: null,
-      loading: true
+      pokemon: null
     }
   }
   
   componentDidMount() {
-    const id = this.props.match.params.id;
-
-    getPokemonDetail(id).then(pokemon => {
+    const name = this.props.match.params.name;
+    P.getPokemonByName(name).then(pokemon => {
       this.setState({
         pokemon: pokemon,
-        loading: false
-      })
+      });
     });
   }
 
@@ -49,8 +46,8 @@ export default class Pokelist extends Component {
 
   render() {
     const pokemon = this.state.pokemon;
-    console.log(pokemon);
-    if (this.state.loading) {
+
+    if (!this.state.pokemon) {
       return <p>loading ...</p> 
     }
     

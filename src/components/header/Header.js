@@ -6,11 +6,11 @@ const items = [
 
 ]
 
-export default class Pokelist extends Component { 
-  renderItems = () => {
+export default class Header extends Component { 
+  renderNavItems = () => {
     return items.map(item => {
       return (
-        <NavLink to={item.path}>{item.title}</NavLink>
+        <NavLink key={item.title} to={item.path}>{item.title}</NavLink>
       );
     });
   }
@@ -18,7 +18,7 @@ export default class Pokelist extends Component {
   render() {
     return (
       <div className="sidenav">
-        {this.renderItems()}
+        {this.renderNavItems()}
       </div>
     );
   }
