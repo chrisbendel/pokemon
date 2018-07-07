@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import P from './../../Pokemon';
 import Pokecard from './Pokecard';
 import './Pokemon.css';
+import { Row, Col } from 'reactstrap';
 
 export default class Pokelist extends Component {
   constructor(props) {
@@ -28,15 +29,19 @@ export default class Pokelist extends Component {
   renderPokecards = pokemonList => {
     console.log(pokemonList);
     return pokemonList.map(pokemon => {
-      return <Pokecard key={pokemon.name} name={pokemon.name}/>;
+      return (
+        <Col sm="3">
+          <Pokecard key={pokemon.name} name={pokemon.name}/>
+        </Col>
+      );
     });
   }
 
   render() {
     return (
-      <div>
+      <Row>
         {this.renderPokecards(this.state.pokemon)}
-      </div>
+      </Row>
     );
   }
 }

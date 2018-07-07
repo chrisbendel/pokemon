@@ -20,7 +20,7 @@ export default class Header extends Component {
 
   render() {
     return (
-      <Nav vertical className="navbar-fixed-left">
+      <Nav vertical className="sidenav">
         {this.renderNavItems()}
       </Nav>
     );

@@ -11,41 +11,20 @@ Feel free to grab more if we need additional colors
 
 .sidenav {
   height: 100%;
-  /* width: 140px; */
-  /* position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #ffeed5;
-  overflow-x: hidden;
-  padding-top: 20px; */
+  padding: 20px 0;
 }
 
-/* The navigation menu links */
 .sidenav a {
-  padding: 6px 8px 6px 16px;
+  padding: 10px 0;
   font-weight: bold;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 16px;
   color: #de7b31;
   display: block;
 }
 
-/* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
   color: #8b6210;
   font-weight: bold;
   text-decoration: none;
-}
-
-/* .main {
-  margin-left: 140px !important;
-  margin-right: 0px !important;
-  width: calc(100% - 140px);
-} */
-
-/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
 }
