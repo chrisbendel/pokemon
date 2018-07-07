@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.1.1",
+    "lodash": "^4.17.10",
     "pokeapi-js-wrapper": "^1.1.1",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
