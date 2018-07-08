@@ -3,8 +3,6 @@ import P from './../../Pokemon';
 import Pokecard from './Pokecard';
 import './Pokemon.css';
 import { Row, Col } from 'reactstrap';
-import InfiniteScroll from 'react-infinite-scroll-component';
-import Infinite from 'react-infinite';
 
 export default class Pokelist extends Component {
   constructor(props) {
@@ -14,7 +12,7 @@ export default class Pokelist extends Component {
       pokemon: [],
       offset: 0,
       total: 0,
-      infiniteLoading: false
+      loading: false
     }
   }
   
@@ -41,7 +39,7 @@ export default class Pokelist extends Component {
   onScroll = () => {
     if (
       (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 500) &&
-      this.state.total && (this.state.pokemon.length < this.state.total)
+      this.state.total && (this.state.pokemon.length < this.state.total) && !this.state.loading
     ) {
       this.fetchMore()
     }
@@ -58,7 +56,7 @@ export default class Pokelist extends Component {
   }
 
   fetchMore = () => {
-    this.setState({infiniteLoading: true});
+    this.setState({loading: true});
     const options = {
       limit: 20,
       offset: this.state.offset + 20
@@ -68,7 +66,7 @@ export default class Pokelist extends Component {
       this.setState({
         pokemon: this.state.pokemon.concat(pokemon.results),
         offset: this.state.offset + 20,
-        infiniteLoading: false
+        loading: false
       });
     });
   }
