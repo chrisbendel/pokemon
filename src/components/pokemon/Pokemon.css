@@ -61,3 +61,11 @@
 
   margin: 5px 0; 
 }
+
+.card-image{
+  transition: all 0.2s
+}
+
+.card-image:hover {
+  transform: scale(1.1);
+}

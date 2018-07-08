@@ -50,16 +50,24 @@ export default class Pokecard extends Component {
   }
 
   render() {
+    const pokemon = this.state.pokemon; 
+
     return (
       <Card className="pokecard">
-         <NavLink to={'/pokemon/' + get(this.state.pokemon, 'name')}>
-          <CardImg top width="100%" src={this.state.pokemon? this.state.pokemon.sprites.front_default: PlaceHolder} alt="Card image cap" />
+         <NavLink to={'/pokemon/' + get(pokemon, 'name')}>
+          <CardImg top width="100%" className={pokemon &&'card-image'} src={pokemon? pokemon.sprites.front_default: PlaceHolder} alt="Card image cap" />
         </NavLink>
         <CardBody>
-          <CardTitle>{get(this.state.pokemon, 'name', <Skeleton/>)}</CardTitle>
-          <CardSubtitle>poke# {get(this.state.pokemon, 'id', <Skeleton width={40}/>)}</CardSubtitle>
-          {this.state.pokemon? <Type types={this.state.pokemon.types}/>: <Skeleton/>}
-          <Button onClick={() => {this.state.pokemon && history.push('/pokemon/' + this.state.pokemon.name)}} className='learn-more' block> Learn More</Button>
+          <div>
+            <div>
+              <CardTitle>{get(pokemon, 'name', <Skeleton/>)}</CardTitle>
+              <CardSubtitle>poke# {get(pokemon, 'id', <Skeleton width={40}/>)}</CardSubtitle>
+            </div>
+            <div>
+              <Type types={pokemon?pokemon.types:[]}/>
+            </div>
+          </div>
+          <Button onClick={() => {pokemon && history.push('/pokemon/' + pokemon.name)}} className='learn-more' block> Learn More</Button>
         </CardBody>
       </Card>
     );

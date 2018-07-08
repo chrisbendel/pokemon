@@ -24,16 +24,21 @@ export default class Type extends Component {
   
 
   renderTypes = (types) => {
-    return types.map(type => {
-      const color = colorMap[type.type.name]
-      return(
-        <NavLink to='' className='type'>
-          <Button style={{backgroundColor: color, borderColor: color}} >
-            {type.type.name}       
-          </Button>{' '}
-        </NavLink>
-      );
-    })
+    if(!types.length){
+      return <Button><Skeleton/></Button>
+    }
+    else{
+      return types.map(type => {
+        const color = colorMap[type.type.name]
+        return(
+          <NavLink to='' className='type'>
+            <Button style={{backgroundColor: color, borderColor: color}} >
+              {type.type.name}       
+            </Button>{' '}
+          </NavLink>
+        );
+      })
+    }
   }
 
 
