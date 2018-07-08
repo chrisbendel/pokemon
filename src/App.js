@@ -6,6 +6,8 @@ import Pokedetail from './components/pokemon/Pokedetail';
 import Header from './components/header/Header';
 import {Container, Row, Col} from 'reactstrap';
 import './App.css';
+import './components/pokemon/Pokemon.css';
+
 
 export default class App extends Component {
   render() {

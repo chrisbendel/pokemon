@@ -3,6 +3,12 @@ import { Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Button } from 'reactstrap';
 import P from './../../Pokemon';
 import PokecardShell from './PokecardShell';
+import {get} from 'lodash'
+import Skeleton from 'react-loading-skeleton';
+import {NavLink} from 'react-router-dom';
+import {history} from './../../History.js';
+import Type from './Type';
+
 
 export default class Pokecard extends Component {
   constructor(props) {
@@ -22,15 +28,37 @@ export default class Pokecard extends Component {
     });
   }
 
+  renderMoves = () => {
+    let moves = this.state.pokemon.moves.slice(0,3);
+    console.log(moves);
+    return moves.map(move => {
+      console.log(move);
+      return <span>{move.move.name},</span>
+    }) 
+  }
+
+  renderPokemonDescription(){
+    return(
+      <p>
+        {this.state.pokemon.name} is a {this.renderTypes()} type pokemon.
+        It is found in the REGIONNAME region. It's starting moves
+        are {this.renderMoves()}.
+      </p>
+    )
+
+  }
+
   render() {
     return (
       <Card className="pokecard">
-        <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
+         <NavLink to={'/pokemon/' + get(this.state.pokemon, 'name')}>
+          <CardImg top width="100%" src={get(this.state.pokemon, 'sprites.front_default', <Skeleton/>)} alt="Card image cap" />
+        </NavLink>
         <CardBody>
-          <CardTitle>Card title</CardTitle>
-          <CardSubtitle>Card subtitle</CardSubtitle>
-          <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-          <Button>Button</Button>
+          <CardTitle>{get(this.state.pokemon, 'name', <Skeleton/>)}</CardTitle>
+          <CardSubtitle>poke# {get(this.state.pokemon, 'id', <Skeleton width={40}/>)}</CardSubtitle>
+          {this.state.pokemon? <Type types={this.state.pokemon.types}/>: <Skeleton/>}
+          <Button onClick={() => {this.state.pokemon && history.push('/pokemon/' + this.state.pokemon.name)}} className='learn-more' block> Learn More</Button>
         </CardBody>
       </Card>
     );
