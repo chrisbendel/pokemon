@@ -8,6 +8,7 @@ import Skeleton from 'react-loading-skeleton';
 import {NavLink} from 'react-router-dom';
 import {history} from './../../History.js';
 import Type from './Type';
+import PlaceHolder from './../../placeholder.png';
 
 
 export default class Pokecard extends Component {
@@ -52,7 +53,7 @@ export default class Pokecard extends Component {
     return (
       <Card className="pokecard">
          <NavLink to={'/pokemon/' + get(this.state.pokemon, 'name')}>
-          <CardImg top width="100%" src={get(this.state.pokemon, 'sprites.front_default', <Skeleton/>)} alt="Card image cap" />
+          <CardImg top width="100%" src={this.state.pokemon? this.state.pokemon.sprites.front_default: PlaceHolder} alt="Card image cap" />
         </NavLink>
         <CardBody>
           <CardTitle>{get(this.state.pokemon, 'name', <Skeleton/>)}</CardTitle>

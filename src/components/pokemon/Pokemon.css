@@ -58,7 +58,6 @@
 }
 
 .type-container {
-  display: flex; 
-  align-content: flex-start;
+
   margin: 5px 0; 
 }

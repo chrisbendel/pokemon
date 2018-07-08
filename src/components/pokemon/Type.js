@@ -8,7 +8,13 @@ const colorMap = {
   fire: 'red',
   poison: 'purple', 
   flying: 'indigo',
-
+  water: 'blue',
+  bug: 'darkGreen',
+  normal: 'tan',
+  ghost: 'darkOrchid',
+  electric: 'gold',
+  psychic: 'salmon',
+  rock: 'peru',
 }
 
 export default class Type extends Component {
@@ -24,7 +30,7 @@ export default class Type extends Component {
         <NavLink to='' className='type'>
           <Button style={{backgroundColor: color, borderColor: color}} >
             {type.type.name}       
-          </Button> 
+          </Button>{' '}
         </NavLink>
       );
     })
