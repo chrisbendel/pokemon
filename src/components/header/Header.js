@@ -11,8 +11,8 @@ export default class Header extends Component {
   renderNavItems = () => {
     return items.map(item => {
       return (
-        <NavItem>
-          <NavLink key={item.title} to={item.path}>{item.title}</NavLink>
+        <NavItem key={item.title}>
+          <NavLink to={item.path}>{item.title}</NavLink>
         </NavItem>
       );
     });
@@ -20,7 +20,7 @@ export default class Header extends Component {
 
   render() {
     return (
-      <Nav vertical className="sidenav">
+      <Nav vertical className="sidenav" data-spy="affix" data-offset-top="200">
         {this.renderNavItems()}
       </Nav>
     );
