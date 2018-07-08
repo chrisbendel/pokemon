@@ -20,7 +20,7 @@ export default class Header extends Component {
 
   render() {
     return (
-      <Nav vertical className="sidenav" data-spy="affix" data-offset-top="200">
+      <Nav vertical className="sidenav">
         {this.renderNavItems()}
       </Nav>
     );
