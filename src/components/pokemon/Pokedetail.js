@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {NavLink} from 'react-router-dom';
 import P from './../../Pokemon';
-import './Pokedetail.css';
 import Skeleton from 'react-loading-skeleton';
 import {get} from 'lodash';
 
@@ -58,7 +57,7 @@ export default class Pokelist extends Component {
       <h1 className="main-title">{get(pokemon, 'name', <Skeleton/>)}</h1>
         <span className="left-column">
           <p>Poke#: {get(pokemon, 'id', <Skeleton/>)}</p>    
-          <img className="main-image" src={get(pokemon, 'sprites.default_front', <Skeleton/>)}/>
+          <img className="main-image" src={get(pokemon, 'sprites.front_default', <Skeleton/>)}/>
           {pokemon && this.renderTypes()}
         </span>
         <span className="right-column">

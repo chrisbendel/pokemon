@@ -1,3 +1,71 @@
 .pokecard {
   margin: 10px 0;
 }
+
+/*Used on PokeDetails page for now*/
+.container {
+  /* border: 2px solid lightgray; */
+  display: table;
+  background-color: rgb(240, 240, 240);
+
+  margin-left: 20px; 
+  margin-right: 20px; 
+  margin-top: 20px; 
+  margin-bottom:10px; 
+
+  width: 90%; 
+  height: 100%;
+
+  padding: 10px 10px 10px 10px;
+  box-shadow: 2px 2px 6px gray;
+}
+
+.main-title {
+  font-size: 35px;  
+  padding-bottom: 2px;
+  border-bottom: 6px solid grey;
+}
+
+.main-image {
+  margin-left: auto; 
+  margin-right: auto; 
+  width: 60%; 
+  min-width: 120px;
+  height: auto;
+  background-color: grey;
+}
+
+.left-column {
+  float: left; 
+  width: 25%;
+}
+
+.right-column {
+  float: right; 
+  width: 75%; 
+}
+
+
+.type {
+  margin-left: auto;  
+  margin-right: auto; 
+  -webkit-transition: all 0.2s; /* Safari */
+  transition: all 0.2s;
+}
+
+.type:hover {
+  opacity: 0.5;
+}
+
+.type-container {
+
+  margin: 5px 0; 
+}
+
+.card-image{
+  transition: all 0.2s
+}
+
+.card-image:hover {
+  transform: scale(1.1);
+}
