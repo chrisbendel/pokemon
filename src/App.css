@@ -10,8 +10,8 @@ Feel free to grab more if we need additional colors
 */
 
 .sidenav {
-  height: 100%;
   padding: 20px 0;
+  position: fixed;
 }
 
 .sidenav a {
@@ -27,4 +27,8 @@ Feel free to grab more if we need additional colors
   color: #8b6210;
   font-weight: bold;
   text-decoration: none;
+}
+
+.pokelist {
+  margin: 0 !important;
 }

@@ -2,14 +2,12 @@ import React, { Component } from 'react';
 import { Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Button } from 'reactstrap';
 import P from './../../Pokemon';
-import PokecardShell from './PokecardShell';
 import {get} from 'lodash'
 import Skeleton from 'react-loading-skeleton';
 import {NavLink} from 'react-router-dom';
 import {history} from './../../History.js';
 import Type from './Type';
 import PlaceHolder from './../../placeholder.png';
-
 
 export default class Pokecard extends Component {
   constructor(props) {
@@ -22,7 +20,7 @@ export default class Pokecard extends Component {
   
   componentDidMount() {
     P.getPokemonByName(this.props.name).then(pokemon => {
-      console.log(pokemon);
+      // console.log(pokemon);
       this.setState({
         pokemon: pokemon
       });
